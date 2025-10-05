@@ -1,0 +1,34 @@
+<script setup lang="ts">
+const props = defineProps({
+  drawerId: {
+    type: String,
+    default: "my-drawer-2",
+  },
+});
+</script>
+
+<template>
+  <div class="navbar bg-base-100 shadow-sm">
+    <div class="flex-none md:hidden">
+      <label
+        :for="drawerId"
+        class="btn btn-square btn-ghost drawer-button lg:hidden"
+      >
+        <Icon name="ri:layout-left-2-line" class="h-5 w-5"></Icon>
+      </label>
+    </div>
+    <div class="flex-1 h-full">
+      <div class="flex items-center h-10">
+        <p class="px-4 font-bold text-lg">Dashboard</p>
+      </div>
+    </div>
+    <div class="flex-none">
+      <div class="px-4 flex items-center gap-x-2">
+        <a class="btn btn-primary">
+          <Icon name="ri:add-line" class="h-5 w-5"></Icon>
+          Add Assets
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

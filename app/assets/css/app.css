@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: lofi --default;
+  logs: false;
+}
+
+@theme {
+  --font-sans: "Onest", sans-serif;
+  --font-mono: "Geist Mono";
+}
