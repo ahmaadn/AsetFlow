@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="navbar bg-base-100 shadow-sm">
+  <div class="navbar bg-base-100 shadow-sm z-10">
     <div class="flex-none md:hidden">
       <label
         :for="drawerId"

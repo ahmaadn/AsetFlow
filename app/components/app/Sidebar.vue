@@ -13,13 +13,13 @@ const menu = [
   },
   {
     title: "Dashboard",
-    items: [{ label: "Dashboard", icon: "ri:function-line", to: "" }],
+    items: [{ label: "Dashboard", icon: "ri:function-line", to: "/dashboard" }],
   },
   {
     title: "Files",
     items: [
       { label: "Folder", icon: "ri:folder-line", to: "" },
-      { label: "Media Library", icon: "ri:stack-line", to: "" },
+      { label: "Media Library", icon: "ri:stack-line", to: "/media" },
       { label: "Dokumen", icon: "ri:file-2-line", to: "" },
       { label: "Photo", icon: "ri:multi-image-line", to: "" },
       { label: "Videos", icon: "ri:video-on-line", to: "" },
@@ -34,14 +34,16 @@ const menu = [
     ],
   },
 ];
+
+const route = useRoute();
 </script>
 
 <template>
   <div class="drawer lg:drawer-open">
     <input :id="id" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content">
+    <main class="drawer-content">
       <slot />
-    </div>
+    </main>
     <div class="drawer-side">
       <label
         :for="id"
@@ -60,10 +62,18 @@ const menu = [
           <ul class="menu px-4 py-2 w-full">
             <h2 class="menu-title">{{ section.title }}</h2>
             <li v-for="(item, iIndex) in section.items" :key="iIndex">
-              <a>
+              <NuxtLink
+                :to="item.to"
+                :class="{
+                  'menu-active':
+                    item.to &&
+                    item.to !== '' &&
+                    route.fullPath.startsWith(item.to),
+                }"
+              >
                 <Icon :name="item.icon" class="h-5 w-5"></Icon>
                 {{ item.label }}
-              </a>
+              </NuxtLink>
             </li>
           </ul>
         </template>

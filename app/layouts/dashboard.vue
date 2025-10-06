@@ -1,8 +1,8 @@
 <template>
   <app-sidebar id="dashboard-drawer">
     <app-navbar drawer-id="dashboard-drawer"></app-navbar>
-    <main>
+    <div>
       <slot></slot>
-    </main>
+    </div>
   </app-sidebar>
 </template>
