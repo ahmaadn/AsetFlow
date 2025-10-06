@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import type { Asset } from "~/types";
 
-definePageMeta({
-  layout: "dashboard",
-});
-
 const assets: Asset[] = [
   {
     name: "hero-banner-v2.png",

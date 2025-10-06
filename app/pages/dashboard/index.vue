@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-definePageMeta({
-  layout: "dashboard",
-});
-</script>
-
 <template>
   <div class="container p-4">
     <stat-group class="w-full bg-base-200">
