@@ -18,7 +18,7 @@ const menu = [
   {
     title: "Files",
     items: [
-      { label: "Folder", icon: "ri:folder-line", to: "" },
+      { label: "Folder", icon: "ri:folder-line", to: "/folder" },
       { label: "Media Library", icon: "ri:stack-line", to: "/media" },
       { label: "Dokumen", icon: "ri:file-2-line", to: "" },
       { label: "Photo", icon: "ri:multi-image-line", to: "" },
