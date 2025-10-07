@@ -71,6 +71,7 @@ function onRowClick(row: Record<string, any>) {
   <div class="overflow-x-auto">
     <table class="table table-xs w-full">
       <thead>
+        <slot name="first-head-row"></slot>
         <tr>
           <th
             v-for="col in props.columns"
@@ -103,8 +104,10 @@ function onRowClick(row: Record<string, any>) {
             </div>
           </th>
         </tr>
+        <slot name="last-head-row"></slot>
       </thead>
       <tbody>
+        <slot name="first-row"></slot>
         <tr
           v-for="row in sortedRows"
           :key="row[props.rowKey || 'id']"
@@ -117,6 +120,7 @@ function onRowClick(row: Record<string, any>) {
             </slot>
           </td>
         </tr>
+        <slot name="last-row"></slot>
       </tbody>
     </table>
   </div>

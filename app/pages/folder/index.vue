@@ -189,6 +189,7 @@ const columns = [
   { key: "createdAt", label: "Created", sortable: true },
   { key: "updatedAt", label: "Updated", sortable: true },
   { key: "totalAssets", label: "Total Assets", sortable: true },
+  { key: "action", label: " ", sortable: false },
 ];
 
 const tags = [
@@ -207,9 +208,10 @@ const tags = [
 ];
 
 const router = useRouter();
+const isCreateFolder = ref(false);
 
 function onRowClick(row: Record<string, any>) {
-  if (row && row.slug) router.push(`/folder/${row.slug}`);
+  // if (row && row.slug) router.push(`/folder/${row.slug}`);
 }
 </script>
 
@@ -217,13 +219,25 @@ function onRowClick(row: Record<string, any>) {
   <Content>
     <ContentHeader>
       <template #left>
-        <button class="btn btn-sm btn-square btn-ghost">
-          <Icon
-            name="ri:restart-line"
-            class="size-5 opacity-80 hover:opacity-100"
+        <div class="flex items-center space-x-2">
+          <button
+            class="btn btn-sm btn-square btn-ghost"
+            @click="isCreateFolder = true"
           >
-          </Icon>
-        </button>
+            <Icon
+              name="ri:add-large-fill"
+              class="size-5 opacity-80 hover:opacity-100"
+            >
+            </Icon>
+          </button>
+          <button class="btn btn-sm btn-square btn-ghost">
+            <Icon
+              name="ri:restart-line"
+              class="size-5 opacity-80 hover:opacity-100"
+            >
+            </Icon>
+          </button>
+        </div>
       </template>
       <template #right>
         <div class="flex items-center space-x-4">
@@ -243,14 +257,22 @@ function onRowClick(row: Record<string, any>) {
         @row-click="onRowClick"
         class="w-full"
       >
+        <template v-if="isCreateFolder" #first-row>
+          <tr>
+            <td :colspan="columns.length" class="p-0">
+              <folder-form @close="isCreateFolder = false" />
+            </td>
+          </tr>
+        </template>
+
         <template #cell-name="{ row }">
-          <div class="flex items-center gap-3">
+          <a class="flex items-center gap-3" :href="`/folder/${row.slug}`">
             <Icon name="ri:folder-fill" class="size-5 text-amber-500"></Icon>
             <div>
               <div class="font-medium">{{ row.name }}</div>
               <div class="text-xs text-neutral/60">{{ row.slug }}</div>
             </div>
-          </div>
+          </a>
         </template>
         <template #cell-tags="{ row }">
           <div class="flex gap-1">
@@ -270,6 +292,11 @@ function onRowClick(row: Record<string, any>) {
               {{ tag }}
             </span>
           </div>
+        </template>
+        <template #cell-action="{ row }">
+          <button class="btn btn-sm btn-ghost btn-square">
+            <Icon name="ri:more-2-fill" class="size-5 opacity-50"></Icon>
+          </button>
         </template>
       </data-table>
     </div>
