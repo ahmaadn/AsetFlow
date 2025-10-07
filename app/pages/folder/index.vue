@@ -214,70 +214,64 @@ function onRowClick(row: Record<string, any>) {
 </script>
 
 <template>
-  <div class="flex-1 flex relative">
-    <!-- Content -->
-    <div class="flex-1 flex flex-col">
-      <!-- Header Konten -->
-      <div
-        class="h-16 flex items-center justify-between px-6 bg-white border-b border-slate-200"
-      >
-        <div></div>
+  <Content>
+    <ContentHeader>
+      <template #left>
+        <button class="btn btn-sm btn-square btn-ghost">
+          <Icon
+            name="ri:restart-line"
+            class="size-5 opacity-80 hover:opacity-100"
+          >
+          </Icon>
+        </button>
+      </template>
+      <template #right>
         <div class="flex items-center space-x-4">
-          <!-- Tab Navigation -->
-          <div role="tablist" class="tabs tabs-box tabs-sm">
-            <a role="tab" class="tab">
-              <Icon name="ri:layout-grid-line" class="size-5 opacity-50"></Icon>
-            </a>
-            <a role="tab" class="tab tab-active">
-              <Icon name="ri:list-check" class="size-5"></Icon>
-            </a>
-          </div>
           <!-- Search Input -->
           <label class="input w-72">
             <Icon name="ri:search-line" class="size-5 opacity-50"></Icon>
             <input type="search" class="grow" placeholder="Search" />
           </label>
         </div>
-      </div>
-      <!-- Table -->
-      <div class="flex-1 overflow-auto p-4">
-        <data-table
-          :columns="columns"
-          :rows="data"
-          rowKey="id"
-          @row-click="onRowClick"
-          class="w-full"
-        >
-          <template #cell-name="{ row }">
-            <div class="flex items-center gap-3">
-              <Icon name="ri:folder-fill" class="size-5 text-amber-500"></Icon>
-              <div>
-                <div class="font-medium">{{ row.name }}</div>
-                <div class="text-xs text-neutral/60">{{ row.slug }}</div>
-              </div>
+      </template>
+    </ContentHeader>
+    <div class="flex-1 overflow-auto p-4">
+      <data-table
+        :columns="columns"
+        :rows="data"
+        rowKey="id"
+        @row-click="onRowClick"
+        class="w-full"
+      >
+        <template #cell-name="{ row }">
+          <div class="flex items-center gap-3">
+            <Icon name="ri:folder-fill" class="size-5 text-amber-500"></Icon>
+            <div>
+              <div class="font-medium">{{ row.name }}</div>
+              <div class="text-xs text-neutral/60">{{ row.slug }}</div>
             </div>
-          </template>
-          <template #cell-tags="{ row }">
-            <div class="flex gap-1">
-              <span
-                v-for="tag in row.tags"
-                :key="tag"
-                class="badge badge-sm"
-                :class="{
-                  'badge-primary':
-                    tags.find((t) => t.name === tag)?.color === 'primary',
-                  'badge-success':
-                    tags.find((t) => t.name === tag)?.color === 'success',
-                  'badge-warning':
-                    tags.find((t) => t.name === tag)?.color === 'warning',
-                }"
-              >
-                {{ tag }}
-              </span>
-            </div>
-          </template>
-        </data-table>
-      </div>
+          </div>
+        </template>
+        <template #cell-tags="{ row }">
+          <div class="flex gap-1">
+            <span
+              v-for="tag in row.tags"
+              :key="tag"
+              class="badge badge-sm"
+              :class="{
+                'badge-primary':
+                  tags.find((t) => t.name === tag)?.color === 'primary',
+                'badge-success':
+                  tags.find((t) => t.name === tag)?.color === 'success',
+                'badge-warning':
+                  tags.find((t) => t.name === tag)?.color === 'warning',
+              }"
+            >
+              {{ tag }}
+            </span>
+          </div>
+        </template>
+      </data-table>
     </div>
-  </div>
+  </Content>
 </template>

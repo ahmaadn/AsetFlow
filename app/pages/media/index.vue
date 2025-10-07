@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Content from "~/components/Content.vue";
 import type { Asset } from "~/types";
 
 const assets: Asset[] = [
@@ -110,14 +111,29 @@ function toggleSelect(asset: Asset) {
 </script>
 
 <template>
-  <div class="flex-1 flex relative min-h-screen">
-    <!-- Area Konten & Filter -->
-    <div class="flex-1 flex flex-col">
-      <!-- Header Konten -->
-      <div
-        class="h-16 flex items-center justify-between px-6 bg-white border-b border-slate-200"
-      >
-        <div>
+  <Content>
+    <ContentHeader>
+      <template #left>
+        <div class="flex items-center space-x-4">
+          <button class="btn btn-sm btn-square btn-ghost">
+            <Icon
+              name="ri:restart-line"
+              class="size-5 opacity-80 hover:opacity-100"
+            >
+            </Icon>
+          </button>
+          <div role="tablist" class="tabs tabs-box tabs-sm">
+            <a role="tab" class="tab">
+              <Icon name="ri:layout-grid-line" class="size-5 opacity-50"></Icon>
+            </a>
+            <a role="tab" class="tab tab-active">
+              <Icon name="ri:list-check" class="size-5"></Icon>
+            </a>
+          </div>
+        </div>
+      </template>
+      <template #right>
+        <div class="flex items-center space-x-4">
           <select class="select w-36">
             <option disabled selected>Type Asset</option>
             <option>
@@ -141,62 +157,46 @@ function toggleSelect(asset: Asset) {
               Audio
             </option>
           </select>
-        </div>
-        <div class="flex items-center space-x-4">
-          <!-- Tab Navigation -->
-          <div role="tablist" class="tabs tabs-box tabs-sm">
-            <a role="tab" class="tab">
-              <Icon name="ri:layout-grid-line" class="size-5 opacity-50"></Icon>
-            </a>
-            <a role="tab" class="tab tab-active">
-              <Icon name="ri:list-check" class="size-5"></Icon>
-            </a>
-          </div>
+
           <!-- Search Input -->
           <label class="input w-72">
             <Icon name="ri:search-line" class="size-5 opacity-50"></Icon>
             <input type="search" class="grow" placeholder="Search" />
           </label>
         </div>
-      </div>
-
-      <!-- Konten Utama (Galeri & Filter Folder) -->
-      <div class="flex-1 p-2 flex">
-        <!-- Galeri Aset -->
-        <div class="flex-1 rounded-lg overflow-y-auto">
-          <aset-grid class="p-4">
-            <aset-item
-              v-for="(asset, i) in assets"
-              :key="asset.slug"
-              :type="asset.type"
-              :filename="asset.name"
-              @click="toggleSelect(asset)"
-              :selected="
-                Boolean(selectedAsset && selectedAsset.slug === asset.slug)
+      </template>
+    </ContentHeader>
+    <div class="flex-1 p-2 flex">
+      <!-- Galeri Aset -->
+      <div class="flex-1 rounded-lg overflow-y-auto">
+        <aset-grid class="p-4">
+          <aset-item
+            v-for="(asset, i) in assets"
+            :key="asset.slug"
+            :type="asset.type"
+            :filename="asset.name"
+            @click="toggleSelect(asset)"
+            :selected="
+              Boolean(selectedAsset && selectedAsset.slug === asset.slug)
+            "
+          >
+            <template
+              #preview
+              v-if="
+                (asset.type === 'image' && asset.assetUrl) ||
+                (asset.type === 'video' && asset.thumbnail)
               "
             >
-              <template
-                #preview
-                v-if="
-                  (asset.type === 'image' && asset.assetUrl) ||
-                  (asset.type === 'video' && asset.thumbnail)
-                "
-              >
-                <img
-                  :src="
-                    asset.type === 'video' ? asset.thumbnail : asset.assetUrl
-                  "
-                  :alt="asset.name"
-                  class="absolute inset-0 w-full h-full object-cover rounded opacity-100 transition-opacity duration-300"
-                />
-              </template>
-            </aset-item>
-          </aset-grid>
-        </div>
+              <img
+                :src="asset.type === 'video' ? asset.thumbnail : asset.assetUrl"
+                :alt="asset.name"
+                class="absolute inset-0 w-full h-full object-cover rounded opacity-100 transition-opacity duration-300"
+              />
+            </template>
+          </aset-item>
+        </aset-grid>
       </div>
     </div>
-
-    <!-- Panel Detail Aset (kanan) -->
     <template v-if="selectedAsset">
       <!-- mobile-only overlay: click to close -->
       <div
@@ -206,5 +206,5 @@ function toggleSelect(asset: Asset) {
 
       <aset-panel :asset="selectedAsset" />
     </template>
-  </div>
+  </Content>
 </template>
