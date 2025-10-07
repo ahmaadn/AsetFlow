@@ -119,10 +119,27 @@ function toggleSelect(asset: Asset) {
       >
         <div>
           <select class="select w-36">
-            <option disabled selected>Type Aset</option>
-            <option>Crimson</option>
-            <option>Amber</option>
-            <option>Velvet</option>
+            <option disabled selected>Type Asset</option>
+            <option>
+              <Icon name="ri:layout-grid-line" class="size-5"></Icon>
+              All
+            </option>
+            <option>
+              <Icon name="ri:image-line" class="size-5"></Icon>
+              Image
+            </option>
+            <option>
+              <Icon name="ri:video-line" class="size-5"></Icon>
+              Video
+            </option>
+            <option>
+              <Icon name="ri:file-text-line" class="size-5"></Icon>
+              Document
+            </option>
+            <option>
+              <Icon name="ri:music-line" class="size-5"></Icon>
+              Audio
+            </option>
           </select>
         </div>
         <div class="flex items-center space-x-4">
