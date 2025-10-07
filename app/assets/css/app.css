@@ -46,10 +46,6 @@
   --font-brand: "Inter", sans-serif;
 }
 
-body:has(#asset-detail-panel.open) {
-  @apply overflow-hidden w-full h-full relative pr-4;
-}
-
 .menu li > a:active {
   @apply bg-base-300 text-primary;
 }
