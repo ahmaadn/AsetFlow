@@ -82,8 +82,10 @@ const props = defineProps<{
         Aksi
       </h4>
       <div class="grid grid-cols-2 gap-3">
-        <button class="btn btn-soft btn-primary col-span-2">Download</button>
-        <button class="btn btn-soft btn-primary">Edit</button>
+        <button class="btn btn-primary col-span-2">Download</button>
+        <button class="btn btn-soft btn-warning border border-warning">
+          Edit
+        </button>
         <button class="btn btn-soft btn-error border border-error">
           Hapus
         </button>

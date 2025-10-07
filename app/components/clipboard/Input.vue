@@ -35,7 +35,7 @@ async function copy() {
           :value="props.value"
         />
         <button
-          class="btn join-item transition-none"
+          class="btn join-item transition-none btn-soft btn-primary"
           @click.prevent="copy"
           :aria-label="'Copy ' + props.value"
         >

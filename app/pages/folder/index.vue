@@ -191,6 +191,21 @@ const columns = [
   { key: "totalAssets", label: "Total Assets", sortable: true },
 ];
 
+const tags = [
+  {
+    name: "work",
+    color: "primary",
+  },
+  {
+    name: "project",
+    color: "success",
+  },
+  {
+    name: "personal",
+    color: "warning",
+  },
+];
+
 const router = useRouter();
 
 function onRowClick(row: Record<string, any>) {
@@ -235,7 +250,7 @@ function onRowClick(row: Record<string, any>) {
         >
           <template #cell-name="{ row }">
             <div class="flex items-center gap-3">
-              <Icon name="ri:folder-6-fill" class="size-5"></Icon>
+              <Icon name="ri:folder-fill" class="size-5 text-amber-500"></Icon>
               <div>
                 <div class="font-medium">{{ row.name }}</div>
                 <div class="text-xs text-neutral/60">{{ row.slug }}</div>
@@ -247,7 +262,15 @@ function onRowClick(row: Record<string, any>) {
               <span
                 v-for="tag in row.tags"
                 :key="tag"
-                class="badge badge-outline badge-sm"
+                class="badge badge-sm"
+                :class="{
+                  'badge-primary':
+                    tags.find((t) => t.name === tag)?.color === 'primary',
+                  'badge-success':
+                    tags.find((t) => t.name === tag)?.color === 'success',
+                  'badge-warning':
+                    tags.find((t) => t.name === tag)?.color === 'warning',
+                }"
               >
                 {{ tag }}
               </span>

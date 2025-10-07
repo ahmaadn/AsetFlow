@@ -19,7 +19,7 @@ const props = defineProps({
     </div>
     <div class="flex-1 h-full">
       <div class="flex items-center h-10">
-        <p class="px-4 font-bold text-lg">Dashboard</p>
+        <p class="px-4 font-bold text-xl">Dashboard</p>
       </div>
     </div>
     <div class="flex-none">

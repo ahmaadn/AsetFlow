@@ -11,4 +11,9 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/app.css"],
   modules: ["@nuxt/fonts", "@nuxt/icon", "@vueuse/nuxt"],
+  fonts: {
+    defaults: {
+      weights: ["100 900"],
+    },
+  },
 });

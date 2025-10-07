@@ -54,8 +54,9 @@ const route = useRoute();
       <div
         class="min-h-full w-72 bg-base-100 shadow shadow-base-300 border-r border-base-300 text-base-content"
       >
-        <div class="p-4 text-center">
-          <h1 class="font-bold md:text-3xl text-2xl px-4">AsetFlow</h1>
+        <div class="p-4 inline-flex items-center gap-x-2 font-brand">
+          <Logo class="h-11 w-11" />
+          <span class="font-bold md:text-3xl text-2xl">AsetFlow</span>
         </div>
 
         <template v-for="(section, _) in menu" :key="_">
@@ -65,7 +66,7 @@ const route = useRoute();
               <NuxtLink
                 :to="item.to"
                 :class="{
-                  'menu-active':
+                  'text-primary bg-base-200 hover:bg-base-300 border-l-4 border-primary is-active':
                     item.to &&
                     item.to !== '' &&
                     route.fullPath.startsWith(item.to),
