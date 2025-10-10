@@ -104,9 +104,16 @@ watch(
   { immediate: true }
 );
 
-// Keep slug in sync with name edits (basic behavior)
 function onNameInput(item: UploadFile) {
   item.slug = generateSlug(item.name || "");
+}
+
+function deleteStagingFile(index: number) {
+  const item = stagingFiles.value[index];
+  if (item && item.previewUrl) {
+    URL.revokeObjectURL(item.previewUrl);
+  }
+  stagingFiles.value.splice(index, 1);
 }
 </script>
 
@@ -237,7 +244,12 @@ function onNameInput(item: UploadFile) {
                   {{ (item.size / 1024).toFixed(2) }} KB
                 </p>
               </div>
-              <button class="btn btn-ghost btn-error btn-square">
+              <button
+                class="btn btn-ghost btn-error btn-square"
+                @click="deleteStagingFile(index)"
+                type="button"
+                aria-label="Hapus file"
+              >
                 <Icon name="ri:close-circle-line" class="size-5"></Icon>
               </button>
             </div>
