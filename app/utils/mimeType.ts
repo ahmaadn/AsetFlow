@@ -2,24 +2,23 @@
  * Mendefinisikan tipe umum dari sebuah aset untuk memudahkan kategorisasi.
  */
 export enum GeneralAssetType {
-  IMAGE = "image",
-  VIDEO = "video",
-  AUDIO = "audio",
-  DOCUMENT = "document",
-  UNKNOWN = "unknown",
+  IMAGE = 'image',
+  VIDEO = 'video',
+  AUDIO = 'audio',
+  DOCUMENT = 'document',
+  UNKNOWN = 'unknown'
 }
-
 /**
  * Pemetaan dari GeneralAssetType ke nama ikon yang sesuai.
  * Kunci adalah enum GeneralAssetType, dan nilainya adalah string nama ikon.
  */
 export const iconMapping: Readonly<Record<GeneralAssetType, string>> = {
-  [GeneralAssetType.IMAGE]: "ri:multi-image-line",
-  [GeneralAssetType.VIDEO]: "ri:video-on-line",
-  [GeneralAssetType.AUDIO]: "ri:music-line",
-  [GeneralAssetType.DOCUMENT]: "ri:file-2-line",
-  [GeneralAssetType.UNKNOWN]: "ri:file-warning-line",
-};
+  [GeneralAssetType.IMAGE]: 'ri:multi-image-line',
+  [GeneralAssetType.VIDEO]: 'ri:video-on-line',
+  [GeneralAssetType.AUDIO]: 'ri:music-line',
+  [GeneralAssetType.DOCUMENT]: 'ri:file-2-line',
+  [GeneralAssetType.UNKNOWN]: 'ri:file-warning-line'
+}
 
 /**
  * Pemetaan dari MIME type spesifik ke GeneralAssetType.
@@ -27,48 +26,47 @@ export const iconMapping: Readonly<Record<GeneralAssetType, string>> = {
  */
 export const mimeTypeMapping: Readonly<Record<string, GeneralAssetType>> = {
   // --- Gambar (Image) ---
-  "image/jpeg": GeneralAssetType.IMAGE,
-  "image/png": GeneralAssetType.IMAGE,
-  "image/gif": GeneralAssetType.IMAGE,
-  "image/svg+xml": GeneralAssetType.IMAGE,
-  "image/webp": GeneralAssetType.IMAGE,
-  "image/bmp": GeneralAssetType.IMAGE,
-  "image/tiff": GeneralAssetType.IMAGE,
+  'image/jpeg': GeneralAssetType.IMAGE,
+  'image/png': GeneralAssetType.IMAGE,
+  'image/gif': GeneralAssetType.IMAGE,
+  'image/svg+xml': GeneralAssetType.IMAGE,
+  'image/webp': GeneralAssetType.IMAGE,
+  'image/bmp': GeneralAssetType.IMAGE,
+  'image/tiff': GeneralAssetType.IMAGE,
 
   // --- Video ---
-  "video/mp4": GeneralAssetType.VIDEO,
-  "video/webm": GeneralAssetType.VIDEO,
-  "video/ogg": GeneralAssetType.VIDEO,
-  "video/mpeg": GeneralAssetType.VIDEO,
-  "video/quicktime": GeneralAssetType.VIDEO, // .mov
-  "video/x-msvideo": GeneralAssetType.VIDEO, // .avi
-  "video/x-flv": GeneralAssetType.VIDEO,
-  "video/x-matroska": GeneralAssetType.VIDEO, // .mkv
+  'video/mp4': GeneralAssetType.VIDEO,
+  'video/webm': GeneralAssetType.VIDEO,
+  'video/ogg': GeneralAssetType.VIDEO,
+  'video/mpeg': GeneralAssetType.VIDEO,
+  'video/quicktime': GeneralAssetType.VIDEO, // .mov
+  'video/x-msvideo': GeneralAssetType.VIDEO, // .avi
+  'video/x-flv': GeneralAssetType.VIDEO,
+  'video/x-matroska': GeneralAssetType.VIDEO, // .mkv
 
   // --- Musik (Audio) ---
-  "audio/mpeg": GeneralAssetType.AUDIO, // .mp3
-  "audio/ogg": GeneralAssetType.AUDIO,
-  "audio/wav": GeneralAssetType.AUDIO,
-  "audio/aac": GeneralAssetType.AUDIO,
-  "audio/webm": GeneralAssetType.AUDIO,
-  "audio/flac": GeneralAssetType.AUDIO,
-  "audio/midi": GeneralAssetType.AUDIO,
+  'audio/mpeg': GeneralAssetType.AUDIO, // .mp3
+  'audio/ogg': GeneralAssetType.AUDIO,
+  'audio/wav': GeneralAssetType.AUDIO,
+  'audio/aac': GeneralAssetType.AUDIO,
+  'audio/webm': GeneralAssetType.AUDIO,
+  'audio/flac': GeneralAssetType.AUDIO,
+  'audio/midi': GeneralAssetType.AUDIO,
 
   // --- Dokumen (Document) ---
-  "application/pdf": GeneralAssetType.DOCUMENT,
+  'application/pdf': GeneralAssetType.DOCUMENT,
 
   // Microsoft Office (Legacy)
-  "application/msword": GeneralAssetType.DOCUMENT, // .doc
-  "application/vnd.ms-excel": GeneralAssetType.DOCUMENT, // .xls
-  "application/vnd.ms-powerpoint": GeneralAssetType.DOCUMENT, // .ppt
+  'application/msword': GeneralAssetType.DOCUMENT, // .doc
+  'application/vnd.ms-excel': GeneralAssetType.DOCUMENT, // .xls
+  'application/vnd.ms-powerpoint': GeneralAssetType.DOCUMENT, // .ppt
 
   // Microsoft Office (OpenXML)
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
     GeneralAssetType.DOCUMENT, // .docx
-  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
-    GeneralAssetType.DOCUMENT, // .xlsx
-  "application/vnd.openxmlformats-officedocument.presentationml.presentation":
-    GeneralAssetType.DOCUMENT, // .pptx
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': GeneralAssetType.DOCUMENT, // .xlsx
+  'application/vnd.openxmlformats-officedocument.presentationml.presentation':
+    GeneralAssetType.DOCUMENT // .pptx
 
   // Teks dan Lainnya
   //   "text/plain": GeneralAssetType.DOCUMENT, // .txt
@@ -81,9 +79,9 @@ export const mimeTypeMapping: Readonly<Record<string, GeneralAssetType>> = {
   //   "application/zip": GeneralAssetType.DOCUMENT,
   //   "application/x-rar-compressed": GeneralAssetType.DOCUMENT,
   //   "application/x-7z-compressed": GeneralAssetType.DOCUMENT,
-};
+}
 
-export const supportedMimeTypes = Object.keys(mimeTypeMapping);
+export const supportedMimeTypes = Object.keys(mimeTypeMapping)
 
 /**
  * Fungsi utilitas untuk mendapatkan tipe general dari sebuah MIME type.
@@ -91,7 +89,7 @@ export const supportedMimeTypes = Object.keys(mimeTypeMapping);
  * @returns GeneralAssetType yang sesuai, atau UNKNOWN jika tidak ditemukan.
  */
 export function getAssetTypeFromMime(mimeType: string): GeneralAssetType {
-  return mimeTypeMapping[mimeType.toLowerCase()] || GeneralAssetType.UNKNOWN;
+  return mimeTypeMapping[mimeType.toLowerCase()] || GeneralAssetType.UNKNOWN
 }
 
 /**
@@ -100,8 +98,8 @@ export function getAssetTypeFromMime(mimeType: string): GeneralAssetType {
  * @returns Nama ikon yang sesuai, atau ikon UNKNOWN jika tidak ditemukan.
  */
 export function getIconForMimeType(mimeType: string): string {
-  const assetType = getAssetTypeFromMime(mimeType);
-  return iconMapping[assetType] || iconMapping[GeneralAssetType.UNKNOWN];
+  const assetType = getAssetTypeFromMime(mimeType)
+  return iconMapping[assetType] || iconMapping[GeneralAssetType.UNKNOWN]
 }
 
 /**
@@ -110,7 +108,7 @@ export function getIconForMimeType(mimeType: string): string {
  * @returns true jika MIME type adalah gambar, false jika tidak.
  */
 export function isImageMimeType(mimeType: string): boolean {
-  return getAssetTypeFromMime(mimeType) === GeneralAssetType.IMAGE;
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.IMAGE
 }
 
 /**
@@ -119,7 +117,7 @@ export function isImageMimeType(mimeType: string): boolean {
  * @returns true jika MIME type adalah video, false jika tidak.
  */
 export function isVideoMimeType(mimeType: string): boolean {
-  return getAssetTypeFromMime(mimeType) === GeneralAssetType.VIDEO;
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.VIDEO
 }
 
 /**
@@ -128,7 +126,7 @@ export function isVideoMimeType(mimeType: string): boolean {
  * @returns true jika MIME type adalah audio, false jika tidak.
  */
 export function isAudioMimeType(mimeType: string): boolean {
-  return getAssetTypeFromMime(mimeType) === GeneralAssetType.AUDIO;
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.AUDIO
 }
 
 /**
@@ -137,5 +135,5 @@ export function isAudioMimeType(mimeType: string): boolean {
  * @returns true jika MIME type adalah dokumen, false jika tidak.
  */
 export function isDocumentMimeType(mimeType: string): boolean {
-  return getAssetTypeFromMime(mimeType) === GeneralAssetType.DOCUMENT;
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.DOCUMENT
 }

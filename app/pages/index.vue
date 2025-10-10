@@ -55,11 +55,7 @@
       <div class="flex-1 p-6 flex">
         <!-- Filter Folder -->
         <nav class="w-56 pr-6">
-          <h3
-            class="text-xs font-semibold uppercase text-slate-500 tracking-wider"
-          >
-            Folders
-          </h3>
+          <h3 class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Folders</h3>
           <ul class="mt-4 space-y-1">
             <li>
               <a
@@ -100,9 +96,7 @@
         </nav>
 
         <!-- Galeri Aset -->
-        <div
-          class="flex-1 bg-white p-4 rounded-lg border border-slate-200 overflow-y-auto"
-        >
+        <div class="flex-1 bg-white p-4 rounded-lg border border-slate-200 overflow-y-auto">
           <div
             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
           >
@@ -118,9 +112,7 @@
               <div
                 class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"
               >
-                <p class="text-white text-xs font-medium truncate">
-                  hero-banner-v2.png
-                </p>
+                <p class="text-white text-xs font-medium truncate">hero-banner-v2.png</p>
               </div>
             </div>
             <!-- Aset Item -->
@@ -144,9 +136,7 @@
               <div
                 class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"
               >
-                <p class="text-white text-xs font-medium truncate">
-                  q3-report.pdf
-                </p>
+                <p class="text-white text-xs font-medium truncate">q3-report.pdf</p>
               </div>
             </div>
             <!-- Aset Item -->
@@ -159,9 +149,7 @@
               <div
                 class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"
               >
-                <p class="text-white text-xs font-medium truncate">
-                  final-logo.svg
-                </p>
+                <p class="text-white text-xs font-medium truncate">final-logo.svg</p>
               </div>
             </div>
             <!-- Aset Item -->
@@ -186,17 +174,15 @@
               <div
                 class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"
               >
-                <p class="text-white text-xs font-medium truncate">
-                  background-music.mp3
-                </p>
+                <p class="text-white text-xs font-medium truncate">background-music.mp3</p>
               </div>
             </div>
             <!-- Tambahkan lebih banyak item aset di sini -->
-            <div class="aspect-square bg-slate-100 rounded-lg"></div>
-            <div class="aspect-square bg-slate-100 rounded-lg"></div>
-            <div class="aspect-square bg-slate-100 rounded-lg"></div>
-            <div class="aspect-square bg-slate-100 rounded-lg"></div>
-            <div class="aspect-square bg-slate-100 rounded-lg"></div>
+            <div class="aspect-square bg-slate-100 rounded-lg" />
+            <div class="aspect-square bg-slate-100 rounded-lg" />
+            <div class="aspect-square bg-slate-100 rounded-lg" />
+            <div class="aspect-square bg-slate-100 rounded-lg" />
+            <div class="aspect-square bg-slate-100 rounded-lg" />
           </div>
         </div>
       </div>
@@ -217,23 +203,15 @@
         </div>
       </div>
       <div class="flex-1 px-6 pb-6 space-y-4">
-        <h4
-          class="text-xs font-semibold uppercase text-slate-500 tracking-wider"
-        >
-          Informasi
-        </h4>
+        <h4 class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Informasi</h4>
         <dl class="space-y-3 text-sm">
           <div class="flex justify-between">
             <dt class="text-slate-500">Nama</dt>
-            <dd class="font-medium text-slate-800 text-right">
-              hero-banner-v2.png
-            </dd>
+            <dd class="font-medium text-slate-800 text-right">hero-banner-v2.png</dd>
           </div>
           <div class="flex justify-between">
             <dt class="text-slate-500">Slug</dt>
-            <dd class="font-medium text-slate-800 text-right">
-              hero-banner-v2
-            </dd>
+            <dd class="font-medium text-slate-800 text-right">hero-banner-v2</dd>
           </div>
           <div class="flex justify-between">
             <dt class="text-slate-500">Tipe Aset</dt>
@@ -281,11 +259,7 @@
         </div>
       </div>
       <div class="p-6 border-t border-slate-200 bg-white">
-        <h4
-          class="text-xs font-semibold uppercase text-slate-500 tracking-wider mb-4"
-        >
-          Aksi
-        </h4>
+        <h4 class="text-xs font-semibold uppercase text-slate-500 tracking-wider mb-4">Aksi</h4>
         <div class="grid grid-cols-2 gap-3">
           <button
             class="w-full text-center bg-white border border-slate-300 text-slate-700 font-semibold px-4 py-2 rounded-lg hover:bg-slate-50 transition-colors text-sm"

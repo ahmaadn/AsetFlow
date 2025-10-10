@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @plugin "daisyui" {
   themes: bumblebee --default;
@@ -6,10 +6,10 @@
 }
 
 @plugin "daisyui/theme" {
-  name: "bumblebee";
+  name: 'bumblebee';
   default: true;
   prefersdark: false;
-  color-scheme: "light";
+  color-scheme: 'light';
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(97% 0 0);
   --color-base-300: oklch(92% 0 0);
@@ -41,9 +41,9 @@
 }
 
 @theme {
-  --font-sans: "Onest", sans-serif;
-  --font-mono: "Geist Mono";
-  --font-brand: "Inter", sans-serif;
+  --font-sans: 'Onest', sans-serif;
+  --font-mono: 'Geist Mono';
+  --font-brand: 'Inter', sans-serif;
 }
 
 .menu li > a:active {

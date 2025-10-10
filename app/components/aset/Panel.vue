@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Asset } from "~/types";
+import type { Asset } from '~/types'
 
 const props = defineProps<{
-  asset: Asset;
-}>();
+  asset: Asset
+}>()
 </script>
 
 <template>
@@ -16,20 +16,14 @@ const props = defineProps<{
       <h3 class="text-lg font-semibold text-neutral">Detail Aset</h3>
       <div class="mt-4 aspect-video rounded bg-base-200 overflow-hidden">
         <img
-          :src="
-            props.asset.assetUrl ||
-            props.asset.thumbnail ||
-            'https://placehold.co/400x225'
-          "
+          :src="props.asset.assetUrl || props.asset.thumbnail || 'https://placehold.co/400x225'"
           :alt="props.asset.name"
           class="w-full h-full object-contain"
         />
       </div>
     </div>
     <div class="flex-1 px-6 pb-6 space-y-4">
-      <h4 class="text-xs font-semibold uppercase text-neutral tracking-wider">
-        Informasi
-      </h4>
+      <h4 class="text-xs font-semibold uppercase text-neutral tracking-wider">Informasi</h4>
       <dl class="space-y-3 text-sm">
         <div class="flex justify-between">
           <dt class="text-neutral/60">Nama</dt>
@@ -58,37 +52,23 @@ const props = defineProps<{
       </dl>
 
       <div class="pt-4 space-y-4">
-        <clipboard-input
-          title="URL Public"
-          :value="props.asset.publicUrl"
-          id="publicUrl"
-        >
-        </clipboard-input>
+        <clipboard-input id="publicUrl" title="URL Public" :value="props.asset.publicUrl" />
 
         <clipboard-input
           v-if="props.asset.claudinaryUrl"
+          id="claudinaryUrl"
           title="URL Claudinary"
           :value="props.asset.claudinaryUrl"
-          id="claudinaryUrl"
-        >
-        </clipboard-input>
+        />
       </div>
     </div>
 
     <div class="p-6 border-t border-base-300 bg-base-100">
-      <h4
-        class="text-xs font-semibold uppercase text-neutral tracking-wider mb-4"
-      >
-        Aksi
-      </h4>
+      <h4 class="text-xs font-semibold uppercase text-neutral tracking-wider mb-4">Aksi</h4>
       <div class="grid grid-cols-2 gap-3">
         <button class="btn btn-primary col-span-2">Download</button>
-        <button class="btn btn-soft btn-warning border border-warning">
-          Edit
-        </button>
-        <button class="btn btn-soft btn-error border border-error">
-          Hapus
-        </button>
+        <button class="btn btn-soft btn-warning border border-warning">Edit</button>
+        <button class="btn btn-soft btn-error border border-error">Hapus</button>
       </div>
     </div>
   </aside>

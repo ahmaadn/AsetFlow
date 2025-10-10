@@ -1,5 +1,10 @@
 // @ts-check
-import withNuxt from './.nuxt/eslint.config.mjs'
+import { createConfigForNuxt } from '@nuxt/eslint-config'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
-export default withNuxt([eslintPluginPrettierRecommended])
+export default [
+  ...(await createConfigForNuxt()),
+
+  // Tambahkan konfigurasi Prettier di akhir
+  eslintPluginPrettierRecommended
+]

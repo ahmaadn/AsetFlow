@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import { computed } from "vue";
-
 const props = defineProps<{
-  tabs: string[];
-  modelValue?: number;
-  classTabs?: string;
-}>();
+  tabs: string[]
+  modelValue?: number
+  classTabs?: string
+}>()
 
-const emit = defineEmits<(e: "update:modelValue", v: number) => void>();
+const emit = defineEmits<(e: 'update:modelValue', v: number) => void>()
 
-const selected = ref<number>(props.modelValue ?? 0);
+const selected = ref<number>(props.modelValue ?? 0)
 
 function onSelect(i: number) {
-  selected.value = i;
-  emit("update:modelValue", i);
+  selected.value = i
+  emit('update:modelValue', i)
 }
 </script>
 
@@ -34,7 +32,7 @@ function onSelect(i: number) {
     </div>
 
     <div>
-      <slot :selected="selected" :select="onSelect"></slot>
+      <slot :selected="selected" :select="onSelect" />
     </div>
   </div>
 </template>

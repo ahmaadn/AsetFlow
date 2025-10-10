@@ -1,5 +1,5 @@
 <template>
   <div class="stats shadow">
-    <slot></slot>
+    <slot />
   </div>
 </template>
