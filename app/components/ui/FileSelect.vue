@@ -96,7 +96,7 @@ watch(files, (newFiles) => handleFileDrop(newFiles));
       <div
         role="button"
         class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-        @click="open"
+        @click="open()"
       ></div>
     </div>
   </div>
