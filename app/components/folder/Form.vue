@@ -1,4 +1,13 @@
 <script setup lang="ts">
+const props = defineProps<{
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+}>();
+
+const modelValue = defineModel<string>({
+  default: "",
+  required: false,
+});
+
 const emit = defineEmits<{
   (e: "close"): void;
 }>();
@@ -6,21 +15,39 @@ const emit = defineEmits<{
 function onCancel() {
   emit("close");
 }
+
+const sizes = {
+  xs: { value: "input-xs", icon: "size-4", btn: "btn-xs" },
+  sm: { value: "input-sm", icon: "size-5", btn: "btn-sm" },
+  md: { value: "input-md", icon: "size-6", btn: "btn-md" },
+  lg: { value: "input-lg", icon: "size-7", btn: "btn-lg" },
+  xl: { value: "input-xl", icon: "size-8", btn: "btn-xl" },
+};
 </script>
 
 <template>
-  <form class="flex items-center gap-2 border-b border-base-300 flex-nowrap">
+  <form class="flex items-center gap-2 flex-nowrap">
     <input
       type="text"
       placeholder="Type here"
-      class="input input-sm w-full input-primary"
+      class="input w-full input-primary"
       required
+      :class="sizes[props.size ?? 'md'].value"
+      v-model="modelValue"
     />
-    <button class="btn btn-xs btn-square btn-ghost btn-success">
-      <Icon name="ri:check-double-fill" class="size-5"> </Icon>
+    <button
+      class="btn btn-square btn-ghost btn-success"
+      :class="sizes[props.size ?? 'md'].btn"
+    >
+      <Icon name="ri:check-double-fill" :class="sizes[props.size ?? 'md'].icon">
+      </Icon>
     </button>
-    <button class="btn btn-xs btn-ghost btn-error btn-square" @click="onCancel">
-      <Icon name="ri:close-fill" class="size-5"></Icon>
+    <button
+      class="btn btn-ghost btn-error btn-square"
+      :class="sizes[props.size ?? 'md'].btn"
+      @click="onCancel"
+    >
+      <Icon name="ri:close-fill" :class="sizes[props.size ?? 'md'].icon"></Icon>
     </button>
   </form>
 </template>
