@@ -24,10 +24,10 @@ const props = defineProps({
     </div>
     <div class="flex-none">
       <div class="px-4 flex items-center gap-x-2">
-        <a class="btn btn-primary">
+        <NuxtLink class="btn btn-primary" to="/media/add">
           <Icon name="ri:add-line" class="h-5 w-5"></Icon>
           Add Assets
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </div>

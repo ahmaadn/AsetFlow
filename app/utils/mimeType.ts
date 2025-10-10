@@ -10,6 +10,18 @@ export enum GeneralAssetType {
 }
 
 /**
+ * Pemetaan dari GeneralAssetType ke nama ikon yang sesuai.
+ * Kunci adalah enum GeneralAssetType, dan nilainya adalah string nama ikon.
+ */
+export const iconMapping: Readonly<Record<GeneralAssetType, string>> = {
+  [GeneralAssetType.IMAGE]: "ri:multi-image-line",
+  [GeneralAssetType.VIDEO]: "ri:video-on-line",
+  [GeneralAssetType.AUDIO]: "ri:music-line",
+  [GeneralAssetType.DOCUMENT]: "ri:file-2-line",
+  [GeneralAssetType.UNKNOWN]: "ri:file-warning-line",
+};
+
+/**
  * Pemetaan dari MIME type spesifik ke GeneralAssetType.
  * Kunci adalah string MIME type, dan nilainya adalah enum GeneralAssetType.
  */
@@ -80,4 +92,50 @@ export const supportedMimeTypes = Object.keys(mimeTypeMapping);
  */
 export function getAssetTypeFromMime(mimeType: string): GeneralAssetType {
   return mimeTypeMapping[mimeType.toLowerCase()] || GeneralAssetType.UNKNOWN;
+}
+
+/**
+ * Fungsi utilitas untuk mendapatkan ikon yang sesuai dari sebuah MIME type.
+ * @param mimeType String MIME type dari file (contoh: 'image/png').
+ * @returns Nama ikon yang sesuai, atau ikon UNKNOWN jika tidak ditemukan.
+ */
+export function getIconForMimeType(mimeType: string): string {
+  const assetType = getAssetTypeFromMime(mimeType);
+  return iconMapping[assetType] || iconMapping[GeneralAssetType.UNKNOWN];
+}
+
+/**
+ * Fungsi utilitas untuk memeriksa apakah sebuah MIME type adalah gambar.
+ * @param mimeType String MIME type dari file (contoh: 'image/png').
+ * @returns true jika MIME type adalah gambar, false jika tidak.
+ */
+export function isImageMimeType(mimeType: string): boolean {
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.IMAGE;
+}
+
+/**
+ * Fungsi utilitas untuk memeriksa apakah sebuah MIME type adalah video.
+ * @param mimeType String MIME type dari file (contoh: 'video/mp4').
+ * @returns true jika MIME type adalah video, false jika tidak.
+ */
+export function isVideoMimeType(mimeType: string): boolean {
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.VIDEO;
+}
+
+/**
+ * Fungsi utilitas untuk memeriksa apakah sebuah MIME type adalah audio.
+ * @param mimeType String MIME type dari file (contoh: 'audio/mpeg').
+ * @returns true jika MIME type adalah audio, false jika tidak.
+ */
+export function isAudioMimeType(mimeType: string): boolean {
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.AUDIO;
+}
+
+/**
+ * Fungsi utilitas untuk memeriksa apakah sebuah MIME type adalah dokumen.
+ * @param mimeType String MIME type dari file (contoh: 'application/pdf').
+ * @returns true jika MIME type adalah dokumen, false jika tidak.
+ */
+export function isDocumentMimeType(mimeType: string): boolean {
+  return getAssetTypeFromMime(mimeType) === GeneralAssetType.DOCUMENT;
 }
