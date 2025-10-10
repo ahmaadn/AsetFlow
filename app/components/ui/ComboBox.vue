@@ -185,7 +185,6 @@ onBeforeUnmount(() => document.removeEventListener("click", onDocumentClick));
 
 <template>
   <div ref="root" class="relative w-full" @keydown.stop.prevent="onKeydown">
-    <!-- Control -->
     <div
       @click="open"
       class="input flex items-center justify-between w-full h-auto min-h-[var(--size)]"
