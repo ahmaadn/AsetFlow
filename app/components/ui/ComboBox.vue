@@ -125,9 +125,13 @@ function onInput() {
 // Cek apakah opsi sudah dipilih
 function isSelected(opt: Option) {
   if (props.multiple) {
-    return Array.isArray(modelValue.value) && modelValue.value.includes(opt);
+    return (
+      Array.isArray(modelValue.value) &&
+      !!modelValue.value.find((item) => item.value === opt.value)
+    );
   }
-  return modelValue.value === opt.value;
+
+  return !Array.isArray(modelValue.value) && modelValue.value === opt;
 }
 
 function onDocumentClick(e: MouseEvent) {
